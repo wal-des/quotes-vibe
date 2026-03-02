@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mina citat</title>
+    <link rel="stylesheet" href="css/main-style.css" />
+    <link rel="stylesheet" href="css/quote-details.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Mina citat</h1>
+
+        <!-- Add Quote Button -->
+        <div class="header-buttons">
+          <button id="toggleFormBtn" class="toggle-form-btn btn-primary">
+            <i class="fa-solid fa-plus"></i> Nytt citat
+          </button>
+        </div>
+      </header>
+
+      <div id="mainContent" class="main-content">
+        <!-- Filter Section -->
+        <section class="filter-section">
+          <div class="search-box" id="searchBox">
+            <button
+              id="searchToggleBtn"
+              class="icon-button"
+              title="Sök"
+              aria-label="Sök citat"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Sök citat..."
+              class="search-input"
+            />
+          </div>
+        </section>
+
+        <!-- Quotes List -->
+        <section class="quotes-section">
+          <div id="quotesList" class="cardList card-container">
+            <!-- Quotes will be loaded here -->
+          </div>
+          <div id="loading" class="loading">Laddar citat...</div>
+          <div id="error" class="error hidden"></div>
+        </section>
+      </div>
+
+      <!-- Quote Modal for Full View -->
+      <div
+        id="quoteModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
+        <div class="modal-container form-modal-container" role="document">
+          <div class="modal-header">
+            <button class="close-modal icon-button">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div id="fullQuoteContent" class="full-quote-content">
+            <!-- Full quote will be displayed here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Quote Form Modal -->
+      <div
+        id="addQuoteModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
+        <div class="modal-container form-modal-container" role="document">
+          <h2>Lägg till ett nytt citat</h2>
+          <form id="quoteForm">
+            <div class="form-group">
+              <label for="quoteContent">Citat *</label>
+              <textarea
+                id="quoteContent"
+                placeholder="Skriv citatet..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="quoteAuthor">Källa</label>
+              <div style="display: flex; gap: 8px">
+                <input
+                  id="quoteAuthor"
+                  type="text"
+                  list="authorsList"
+                  placeholder="Sök källa..."
+                  style="flex: 1"
+                />
+                <button
+                  type="button"
+                  id="addNewSourceBtn"
+                  class="icon-button"
+                  title="Lägg till en ny källa"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <datalist id="authorsList"></datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="quoteType">Typ</label>
+              <input
+                id="quoteType"
+                type="text"
+                list="typesList"
+                placeholder="Sök typer..."
+              />
+              <datalist id="typesList"></datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="quoteAdditionalNote">Tillägg</label>
+              <textarea
+                id="quoteAdditionalNote"
+                placeholder="Lägg till ytterligare sammanhang eller anteckningar..."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Spara</button>
+              <button type="button" id="cancelFormBtn" class="btn-secondary">
+                Avbryt
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Add New Source Modal -->
+      <div
+        id="addSourceModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
+        <div class="modal-container form-modal-container" role="document">
+          <h2>Lägg till en ny källa</h2>
+          <form id="sourceForm">
+            <div class="form-group">
+              <label for="sourceFirstName">Förnamn</label>
+              <input
+                id="sourceFirstName"
+                type="text"
+                placeholder="Förnamn..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sourceLastName">Efternamn</label>
+              <input
+                id="sourceLastName"
+                type="text"
+                placeholder="Efternamn..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sourceArtistName">Artistnamn</label>
+              <input
+                id="sourceArtistName"
+                type="text"
+                placeholder="Artistnamn..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sourceTitle">Titel</label>
+              <input id="sourceTitle" type="text" placeholder="Titel..." />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Spara</button>
+              <button type="button" id="cancelSourceBtn" class="btn-secondary">
+                Avbryt
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
