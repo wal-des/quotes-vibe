@@ -64,7 +64,7 @@
   width: 95%;
   max-width: 600px;
   height: auto;
-  max-height: 95vh;
+  max-height: 95svh;
   background-color: var(--clr-card-background);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(93, 52, 255, 0.2);
