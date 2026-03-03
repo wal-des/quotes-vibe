@@ -266,7 +266,7 @@ function openQuoteModal(quote) {
 
   fullQuoteContent.innerHTML = `
         <div>
-            <p class="quote-text">"${escapeHtml(quote.content)}"</p>
+            <p class="quote-text">${escapeHtml(quote.content)}</p>
             <div class="quote-details">
                 <div>
                 <span class="quote-source label">${escapeHtml(quote.author)}</span>

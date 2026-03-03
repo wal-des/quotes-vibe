@@ -52,23 +52,23 @@
 }
 
 /* Modal header to hold close button */
-.modal-header {
+.modal-footer {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--space-m);
+  justify-content: center;
+  margin-top: var(--space-m);
 }
 
 /* Form modal container - centered, reasonable size */
 .form-modal-container {
   position: relative;
-  width: 90%;
+  width: 95%;
   max-width: 600px;
   height: auto;
-  max-height: 90vh;
+  max-height: 95vh;
   background-color: var(--clr-card-background);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(93, 52, 255, 0.2);
-  padding: var(--space-l);
+  padding: var(--space-m);
   margin: auto;
   display: flex;
   flex-direction: column;

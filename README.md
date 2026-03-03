@@ -24,7 +24,9 @@ A beautiful, responsive web application that fetches and displays quotes from an
 ├── .gitignore               # Git ignore rules
 └── public/
     ├── index.html           # Main HTML file
-    ├── styles.css           # CSS styling
+    ├── css/                 # Stylesheet directory
+    │   ├── main-style.css   # Global styles and layout
+    │   └── quote-details.css# Specific styles for quote cards & modals
     └── script.js            # Frontend JavaScript
 ```
 
@@ -177,7 +179,7 @@ For a fully static deployment (without the Node backend):
 
 ### Styling
 
-- Edit `public/styles.css` to customize colors, fonts, and layout
+- Modify the CSS files inside `public/css/` (e.g. `main-style.css` or `quote-details.css`) to customize colors, fonts, and layout
 - The app uses a purple gradient theme by default
 
 ### Truncation Length

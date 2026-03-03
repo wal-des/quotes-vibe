@@ -137,8 +137,7 @@ h2 {
   line-height: 120%;
 }
 
-p,
-.quote-text {
+p {
   font-family: var(--ff-body);
   font-size: var(--font-size-m);
   line-height: 160%;
@@ -154,11 +153,12 @@ button {
   font-size: var(--font-size-m);
   font-weight: 400;
   line-height: 120%;
-  min-width: 150px;
+  min-width: 100px;
+  min-height: 40px;
   border-radius: var(--btn-corner-radius);
   cursor: pointer;
   opacity: 1;
-  padding: var(--space-2xs) var(--space-l);
+  padding: var(--space-xs) var(--space-m);
   border: none;
 }
 
@@ -231,6 +231,9 @@ header {
 }
 
 .quote-text {
+  font-family: var(--ff-body);
+  font-size: var(--font-size-m);
+  line-height: 160%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -328,7 +331,6 @@ header {
 }
 
 .search-box .icon-button {
-  min-width: 0;
   width: var(--space-l);
   height: var(--space-l);
   padding: 0;
